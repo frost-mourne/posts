@@ -37,7 +37,7 @@ docker-compose up -d --build
 Генерация ключа и миграции:
  ```bash
 docker-compose exec laravel.test php artisan key:generate
-docker-compose exec laravel.test php artisan migrate
+docker-compose exec laravel.test php artisan migrate:fresh
 ```
 Заполнение базы данных (сиды):
  ```bash
