@@ -10,10 +10,10 @@ export default defineConfig({
         }),
         react(),
     ],
-    server: { // Добавьте этот блок
-        host: '127.0.0.1',
+    server: {
+        host: '0.0.0.0', // '127.0.0.1'
         hmr: {
-            host: '127.0.0.1',
+            host: 'localhost',
         },
     },
 });
