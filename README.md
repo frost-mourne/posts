@@ -12,38 +12,39 @@
 📥 Шаги установки
 1. Клонирование репозитория
 Склонируйте проект и перейдите в рабочую директорию:
-bash
+ ```bash
 git clone https://github.com/frost-mourne/posts.git
 cd posts
-
+```
 2. Настройка окружения
 Создайте файл конфигурации .env, скопировав пример:
-bash
+ ```bash
 cp .env.example .env
-
+```
 3. Установка зависимостей Composer
 Запустите временный контейнер для установки PHP-пакетов:
-bash
+ ```bash
 docker run --rm -v ${PWD}:/var/www/html -w /var/www/html laravelsail/php84-composer:latest composer install
-
+```
 4. Запуск Docker-контейнеров
 Соберите и поднимите контейнеры в фоновом режиме:
-bash
+ ```bash
 docker-compose up -d --build
-
+```
 Для проверки статуса контейнеров используйте: docker-compose ps
 ⚙️ Настройка приложения
 После успешного запуска контейнеров выполните финальную конфигурацию:
 Генерация ключа и миграции:
-bash
+ ```bash
 docker-compose exec laravel.test php artisan key:generate
 docker-compose exec laravel.test php artisan migrate
-
+```
 Заполнение базы данных (сиды):
-bash
+ ```bash
 docker-compose exec laravel.test php artisan db:seed --class=ArticleSeeder
-
+```
 Установка и сборка фронтенда:
-bash
+ ```bash
 docker-compose exec laravel.test npm install
 docker-compose exec laravel.test npm run dev
+```
